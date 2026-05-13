@@ -60,7 +60,7 @@ nav{
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1200px;margin:0 auto}
 .logo{font-family:'Fraunces',serif;font-weight:900;font-size:22px;letter-spacing:-.02em}
-.logo span{background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo span{background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-right:.15em;margin-right:-.1em}
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-weight:500;font-size:14.5px;color:var(--ink-dim);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -89,6 +89,9 @@ h1.hero-title .grad{
   background:linear-gradient(120deg,var(--pink) 0%,var(--orange) 35%,var(--yellow) 70%,var(--cyan) 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   font-style:italic;
+  display:inline-block;
+  padding:.05em .15em .15em 0;
+  margin-right:-.12em;
 }
 .hero-sub{
   font-size:clamp(18px,2.2vw,22px);
@@ -137,21 +140,29 @@ section{padding:100px 0;position:relative}
 }
 h2{
   font-family:'Fraunces',serif;font-weight:900;
-  font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:-.03em;margin:0;
+  font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.03em;margin:0;
+  padding-bottom:.12em;
 }
-h2 em{font-style:italic;background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2 em{
+  font-style:italic;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block;
+  padding:.05em .25em .15em 0;
+  margin-right:-.18em;
+}
 
 /* ===== works ===== */
-.works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
 .work{
   position:relative;border-radius:var(--radius);overflow:hidden;
   cursor:pointer;background:var(--card);
   transition:transform .35s cubic-bezier(.2,.7,.3,1);
 }
 .work:hover{transform:translateY(-6px)}
-.work img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.work img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block}
 .work:hover img{transform:scale(1.04)}
-.work .cover{position:relative;aspect-ratio:4/3;overflow:hidden}
+.work .cover{position:relative;overflow:hidden;width:100%}
 .work .meta{
   position:absolute;left:0;right:0;bottom:0;padding:24px;
   background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.85) 100%);
@@ -165,10 +176,13 @@ h2 em{font-style:italic;background:linear-gradient(90deg,var(--cyan),var(--purpl
 .work .title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;line-height:1.1;margin:0}
 .work .desc{font-size:13.5px;color:var(--ink-dim);margin:6px 0 0}
 
-.work.size-lg{grid-column:span 8}
-.work.size-md{grid-column:span 4}
-.work.size-half{grid-column:span 6}
-.work.size-full{grid-column:span 12}
+/* horizontal hero card (Cars brochure) — full width, ~7:5 matches spread */
+.work.size-wide{grid-column:span 12}
+.work.size-wide .cover{aspect-ratio:7/5}
+
+/* vertical cards — 3 in a row, 5:7 matches A4/poster source naturally */
+.work.size-tall{grid-column:span 4}
+.work.size-tall .cover{aspect-ratio:5/7}
 
 .tag-pink{background:rgba(255,62,165,.2);color:#ff84c4;border:1px solid rgba(255,62,165,.4)}
 .tag-orange{background:rgba(255,138,61,.2);color:#ffb380;border:1px solid rgba(255,138,61,.4)}
@@ -313,7 +327,8 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
     top:100%;left:0;right:0;background:var(--bg-2);padding:20px 28px;
     border-bottom:1px solid rgba(255,255,255,.08);gap:18px;
   }
-  .work.size-lg,.work.size-md,.work.size-half{grid-column:span 12}
+  .work.size-wide,.work.size-tall{grid-column:span 12}
+  .work.size-tall .cover{aspect-ratio:4/5}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .about-photo{max-width:280px;margin:0 auto}
   .skills-wrap{grid-template-columns:1fr;gap:40px}
@@ -397,7 +412,7 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
 
     <div class="works-grid">
 
-      <article class="work size-lg reveal" data-project="cars">
+      <article class="work size-wide reveal" data-project="cars">
         <div class="cover">
           <img src="images/work1/page-1.jpg" alt="Cars - Brochure McQueen">
           <div class="meta">
@@ -408,7 +423,7 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
         </div>
       </article>
 
-      <article class="work size-md reveal" data-project="christmas">
+      <article class="work size-tall reveal" data-project="christmas">
         <div class="cover">
           <img src="images/work2/page-1.jpg" alt="Merry Christmas 2025">
           <div class="meta">
@@ -419,7 +434,7 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
         </div>
       </article>
 
-      <article class="work size-md reveal" data-project="instagram">
+      <article class="work size-tall reveal" data-project="instagram">
         <div class="cover">
           <img src="images/work3/page-1.jpg" alt="Instagram Statistiche 2023">
           <div class="meta">
@@ -430,7 +445,7 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
         </div>
       </article>
 
-      <article class="work size-lg reveal" data-project="cv">
+      <article class="work size-tall reveal" data-project="cv">
         <div class="cover">
           <img src="images/cv/cv-1.jpg" alt="CV Personale">
           <div class="meta">
@@ -574,11 +589,11 @@ footer .foot-brand{font-family:'Fraunces',serif;font-style:italic;color:var(--in
             <div class="val">Milano, Italia</div>
           </div>
         </div>
-        <a class="contact-card" href="#" onclick="alert('Aggiungi qui il link al tuo Instagram');return false">
+        <a class="contact-card" href="https://instagram.com/llowironz" target="_blank" rel="noopener">
           <div class="icon">📸</div>
           <div>
             <div class="label">Instagram</div>
-            <div class="val">@aggiungi_il_tuo</div>
+            <div class="val">@llowironz</div>
           </div>
         </a>
       </div>
