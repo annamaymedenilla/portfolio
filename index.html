@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Annamay Medenilla — Graphic Designer</title>
+<meta name="description" content="Portfolio di Annamay Medenilla, graphic designer. Brochure, infografiche, illustrazioni e progetti editoriali." />
+<meta name="theme-color" content="#0e0a1e" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+@font-face{
+  font-family:'Bomb';
+  src:url('fonts/bombfont.ttf') format('truetype');
+  font-display:swap;
+}
+:root{
+  --bg:#0e0a1e;
+  --bg-2:#15102b;
+  --ink:#fff8ee;
+  --ink-dim:rgba(255,248,238,.65);
+  --pink:#ff3ea5;
+  --orange:#ff8a3d;
+  --yellow:#ffd23f;
+  --cyan:#3df0ff;
+  --purple:#9d4dff;
+  --green:#3ddc84;
+  --card:#1a1432;
+  --card-2:#231944;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ===== animated blobs ===== */
+.bg-blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;animation:float 18s ease-in-out infinite}
+.blob.b1{width:520px;height:520px;background:var(--pink);top:-120px;left:-120px}
+.blob.b2{width:460px;height:460px;background:var(--purple);top:30%;right:-180px;animation-delay:-6s}
+.blob.b3{width:420px;height:420px;background:var(--cyan);bottom:-160px;left:30%;animation-delay:-12s;opacity:.35}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(40px,-30px) scale(1.07)}
+}
+
+/* ===== nav ===== */
+nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(14,10,30,.6);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1200px;margin:0 auto}
+.logo{font-family:'Bomb','Fraunces',serif;font-weight:900;font-size:22px;letter-spacing:-.02em}
+.logo span{background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-right:.15em;margin-right:-.1em}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-weight:500;font-size:14.5px;color:var(--ink-dim);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:24px;cursor:pointer}
+
+/* ===== hero ===== */
+.hero{padding:80px 0 100px;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  font-size:13px;color:var(--ink-dim);font-weight:500;
+  margin-bottom:28px;
+}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+h1.hero-title{
+  font-family:'Bomb','Fraunces',serif;
+  font-weight:900;
+  font-size:clamp(56px,10vw,140px);
+  line-height:.92;
+  letter-spacing:-.04em;
+  margin:0 0 28px;
+}
+h1.hero-title .grad{
+  background:linear-gradient(120deg,var(--pink) 0%,var(--orange) 35%,var(--yellow) 70%,var(--cyan) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-style:italic;
+  display:inline-block;
+  padding:.05em .15em .15em 0;
+  margin-right:-.12em;
+}
+.hero-sub{
+  font-size:clamp(18px,2.2vw,22px);
+  max-width:680px;color:var(--ink-dim);margin:0 0 44px;
+}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 28px;border-radius:999px;
+  font-weight:600;font-size:15px;
+  transition:transform .2s,box-shadow .2s;
+  cursor:pointer;border:0;
+}
+.btn-primary{
+  background:linear-gradient(90deg,var(--pink),var(--orange));
+  color:#fff;
+  box-shadow:0 12px 32px rgba(255,62,165,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(255,62,165,.5)}
+.btn-ghost{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);
+  color:var(--ink);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+/* marquee */
+.marquee{
+  margin-top:80px;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:18px 0;
+}
+.marquee-track{display:flex;gap:60px;animation:scroll 28s linear infinite;white-space:nowrap}
+.marquee-track span{font-family:'Bomb','Fraunces',serif;font-style:italic;font-size:28px;color:var(--ink-dim)}
+.marquee-track span b{color:var(--ink);font-weight:900;font-style:normal}
+.marquee-track .star{color:var(--yellow)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== sections ===== */
+section{padding:100px 0;position:relative}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:60px;flex-wrap:wrap}
+.section-num{
+  font-family:'Bomb','Fraunces',serif;font-weight:500;font-style:italic;
+  color:var(--ink-dim);font-size:14px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;
+}
+h2{
+  font-family:'Bomb','Fraunces',serif;font-weight:900;
+  font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.03em;margin:0;
+  padding-bottom:.12em;
+}
+h2 em{
+  font-style:italic;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block;
+  padding:.05em .25em .15em 0;
+  margin-right:-.18em;
+}
+
+/* ===== works ===== */
+.works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.work{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  cursor:pointer;background:var(--card);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.work:hover{transform:translateY(-6px)}
+.work img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block}
+.work:hover img{transform:scale(1.04)}
+.work .cover{position:relative;overflow:hidden;width:100%}
+.work .meta{
+  position:absolute;left:0;right:0;bottom:0;padding:24px;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.85) 100%);
+  z-index:2;
+}
+.work .tag{
+  display:inline-block;padding:5px 12px;border-radius:999px;
+  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.work .title{font-family:'Bomb','Fraunces',serif;font-weight:700;font-size:24px;line-height:1.1;margin:0}
+.work .desc{font-size:13.5px;color:var(--ink-dim);margin:6px 0 0}
+
+/* horizontal hero card (Cars brochure) — full width, ~7:5 matches spread */
+.work.size-wide{grid-column:span 12}
+.work.size-wide .cover{aspect-ratio:7/5}
+
+/* mid-size horizontal cards (A4 landscape portfolio pages) — 2 in a row */
+.work.size-mid{grid-column:span 6}
+.work.size-mid .cover{aspect-ratio:7/5}
+
+/* vertical cards — 4 in a row, 5:7 matches A4/poster source naturally */
+.work.size-tall{grid-column:span 3}
+.work.size-tall .cover{aspect-ratio:5/7}
+
+.tag-green{background:rgba(61,220,132,.18);color:#7ee0a4;border:1px solid rgba(61,220,132,.4)}
+.tag-violet{background:rgba(180,120,255,.2);color:#d8b4ff;border:1px solid rgba(180,120,255,.4)}
+.tag-yellow{background:rgba(255,210,63,.18);color:#ffe07a;border:1px solid rgba(255,210,63,.4)}
+
+.tag-pink{background:rgba(255,62,165,.2);color:#ff84c4;border:1px solid rgba(255,62,165,.4)}
+.tag-orange{background:rgba(255,138,61,.2);color:#ffb380;border:1px solid rgba(255,138,61,.4)}
+.tag-purple{background:rgba(157,77,255,.2);color:#c8a4ff;border:1px solid rgba(157,77,255,.4)}
+.tag-cyan{background:rgba(61,240,255,.18);color:#7ef0ff;border:1px solid rgba(61,240,255,.4)}
+
+/* ===== about ===== */
+.about-grid{display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
+.about-photo{position:relative}
+.about-photo img{
+  border-radius:24px;width:100%;
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+.about-photo::before{
+  content:"";position:absolute;inset:-12px;
+  background:linear-gradient(135deg,var(--pink),var(--yellow));
+  border-radius:32px;z-index:-1;opacity:.7;
+  filter:blur(20px);
+}
+.about-photo .badge{
+  position:absolute;bottom:-20px;right:-20px;
+  background:var(--yellow);color:#0e0a1e;
+  font-family:'Bomb','Fraunces',serif;font-weight:900;font-style:italic;
+  padding:18px 24px;border-radius:18px;
+  font-size:18px;line-height:1;
+  transform:rotate(-6deg);
+  box-shadow:0 10px 30px rgba(255,210,63,.4);
+}
+.about-text p{font-size:17px;color:var(--ink-dim);margin:0 0 18px;max-width:560px}
+.about-text h3{font-family:'Bomb','Fraunces',serif;font-weight:700;font-size:34px;margin:0 0 24px;color:var(--ink)}
+.facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px}
+.fact{padding:18px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;min-width:130px}
+.fact .num{font-family:'Bomb','Fraunces',serif;font-weight:900;font-size:34px;line-height:1}
+.fact .num.pink{color:var(--pink)}
+.fact .num.orange{color:var(--orange)}
+.fact .num.cyan{color:var(--cyan)}
+.fact .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);margin-top:6px}
+
+/* timeline */
+.timeline{margin-top:50px;display:grid;gap:18px}
+.tl-item{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:18px 0;border-top:1px solid rgba(255,255,255,.08)}
+.tl-item:last-child{border-bottom:1px solid rgba(255,255,255,.08)}
+.tl-date{font-family:'Bomb','Fraunces',serif;font-weight:600;font-style:italic;color:var(--yellow);font-size:14px;letter-spacing:.05em}
+.tl-body h4{margin:0 0 4px;font-size:18px;font-weight:700}
+.tl-body p{margin:0;color:var(--ink-dim);font-size:14.5px}
+
+/* ===== skills ===== */
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.skill-block h3{font-family:'Bomb','Fraunces',serif;font-weight:700;font-size:24px;margin:0 0 24px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:14px;font-weight:500;
+  transition:all .25s;
+}
+.chip:hover{transform:translateY(-2px);border-color:var(--pink);color:var(--pink)}
+.chip.featured{background:linear-gradient(90deg,var(--pink),var(--orange));border:0;color:#fff;font-weight:600}
+.chip.featured:hover{color:#fff;transform:translateY(-2px) scale(1.04)}
+.langs{display:grid;gap:14px}
+.lang-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+.lang-name{font-weight:600}
+.lang-level{font-size:13px;color:var(--ink-dim);font-style:italic;font-family:'Fraunces',serif}
+
+/* ===== contact ===== */
+.contact{
+  border-radius:32px;
+  background:linear-gradient(135deg,rgba(255,62,165,.18),rgba(157,77,255,.18));
+  border:1px solid rgba(255,255,255,.12);
+  padding:80px 60px;text-align:center;position:relative;overflow:hidden;
+}
+.contact::before{
+  content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  background:var(--orange);filter:blur(120px);opacity:.4;top:-100px;right:-50px;
+}
+.contact h2{margin-bottom:24px;position:relative}
+.contact p{font-size:18px;color:var(--ink-dim);max-width:540px;margin:0 auto 40px;position:relative}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:600px;margin:0 auto;position:relative}
+.contact-card{
+  padding:22px;background:rgba(14,10,30,.5);
+  border:1px solid rgba(255,255,255,.1);border-radius:18px;
+  display:flex;align-items:center;gap:14px;text-align:left;
+  transition:all .25s;
+}
+.contact-card:hover{border-color:var(--pink);transform:translateY(-3px)}
+.contact-card .icon{
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--pink),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.contact-card .label{font-size:12px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.08em}
+.contact-card .val{font-weight:600;font-size:14.5px;margin-top:2px;word-break:break-all}
+
+/* ===== footer ===== */
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;color:var(--ink-dim);font-size:14px}
+footer .foot-brand{font-family:'Bomb','Fraunces',serif;font-style:italic;color:var(--ink)}
+
+/* ===== lightbox ===== */
+.lightbox{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(0,0,0,.92);
+  display:none;align-items:center;justify-content:center;
+  padding:40px 20px;
+}
+.lightbox.open{display:flex}
+.lightbox-content{
+  max-width:1100px;width:100%;max-height:100%;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.lightbox-img{
+  max-height:78vh;max-width:100%;
+  border-radius:8px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  object-fit:contain;
+}
+.lightbox-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;color:var(--ink);
+}
+.lightbox-title{font-family:'Bomb','Fraunces',serif;font-weight:700;font-size:20px}
+.lightbox-counter{color:var(--ink-dim);font-size:14px}
+.lb-btn{
+  width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);
+  border:0;color:#fff;font-size:22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb-close{position:absolute;top:24px;right:24px}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{left:24px}
+.lb-next{right:24px}
+
+/* ===== responsive ===== */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:var(--bg-2);padding:20px 28px;
+    border-bottom:1px solid rgba(255,255,255,.08);gap:18px;
+  }
+  .work.size-wide,.work.size-mid,.work.size-tall{grid-column:span 12}
+  .work.size-tall .cover{aspect-ratio:4/5}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo{max-width:280px;margin:0 auto}
+  .skills-wrap{grid-template-columns:1fr;gap:40px}
+  .contact{padding:60px 28px}
+  .contact-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:6px}
+  section{padding:70px 0}
+  .hero{padding:50px 0 70px}
+}
+
+/* fade-in */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+
+<body>
+
+<div class="bg-blobs">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="logo">Annamay <span>Medenilla</span></a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="#works">Lavori</a>
+      <a href="#about">Chi sono</a>
+      <a href="#skills">Competenze</a>
+      <a href="#contact">Contatti</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Disponibile per nuovi progetti</div>
+    <h1 class="hero-title">
+      Graphic<br>
+      designer<br>
+      <span class="grad">creativa.</span>
+    </h1>
+    <p class="hero-sub">
+      Mi chiamo Annamay, ho 19 anni e disegno idee. Brochure, infografiche, illustrazioni e progetti editoriali nati con Illustrator, Photoshop e InDesign.
+    </p>
+    <div class="hero-cta">
+      <a href="#works" class="btn btn-primary">Vedi i lavori →</a>
+      <a href="#contact" class="btn btn-ghost">Scrivimi</a>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span><b>Brand</b> design</span><span class="star">✦</span>
+      <span><b>Editoriale</b></span><span class="star">✦</span>
+      <span><b>Infografiche</b></span><span class="star">✦</span>
+      <span><b>Illustrazione</b></span><span class="star">✦</span>
+      <span><b>Brochure</b></span><span class="star">✦</span>
+      <span><b>Loghi</b></span><span class="star">✦</span>
+      <span><b>Brand</b> design</span><span class="star">✦</span>
+      <span><b>Editoriale</b></span><span class="star">✦</span>
+      <span><b>Infografiche</b></span><span class="star">✦</span>
+      <span><b>Illustrazione</b></span><span class="star">✦</span>
+      <span><b>Brochure</b></span><span class="star">✦</span>
+      <span><b>Loghi</b></span><span class="star">✦</span>
+    </div>
+  </div>
+</header>
+
+<section id="works">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-num">01 — Portfolio</div>
+        <h2>Lavori<br><em>selezionati</em></h2>
+      </div>
+      <p style="max-width:340px;color:var(--ink-dim);margin:0">Una selezione di progetti tra brochure, illustrazioni e infografiche. Clicca su ogni progetto per vedere tutte le pagine.</p>
+    </div>
+
+    <div class="works-grid">
+
+      <article class="work size-wide reveal" data-project="cars">
+        <div class="cover">
+          <img src="images/work1/page-1.jpg" alt="Cars - Brochure McQueen">
+          <div class="meta">
+            <span class="tag tag-pink">Brochure · Editoriale</span>
+            <h3 class="title">Cars — McQueen</h3>
+            <p class="desc">Brochure tri-pannello dedicata alla saga Pixar Cars</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="pachitta">
+        <div class="cover">
+          <img src="images/works/pachitta.jpg" alt="Pachitta - Pack design pasta">
+          <div class="meta">
+            <span class="tag tag-green">Packaging · Brand</span>
+            <h3 class="title">Pachitta</h3>
+            <p class="desc">Pack design e fustella per pasta sarda Rigatoni n°89</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="flora">
+        <div class="cover">
+          <img src="images/works/flora.jpg" alt="Flora - Brand identity sapone alla lavanda">
+          <div class="meta">
+            <span class="tag tag-violet">Brand identity · Logo</span>
+            <h3 class="title">Flora</h3>
+            <p class="desc">Brand identity per sapone artigianale alla lavanda</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="poste">
+        <div class="cover">
+          <img src="images/works/poste.jpg" alt="Poste Delivery - Annuncio pubblicitario">
+          <div class="meta">
+            <span class="tag tag-yellow">Adv · Visual</span>
+            <h3 class="title">Poste Delivery</h3>
+            <p class="desc">Annuncio pubblicitario A4 — visual per Poste Italiane</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="toscanini">
+        <div class="cover">
+          <img src="images/works/toscanini.jpg" alt="Ritratti ispirati a Toscani">
+          <div class="meta">
+            <span class="tag tag-cyan">Fotografia · Ritratto</span>
+            <h3 class="title">Ritratti</h3>
+            <p class="desc">Serie fotografica ispirata ai ritratti di Toscani</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="forme">
+        <div class="cover">
+          <img src="images/works/forme.jpg" alt="Forme - Studio profondità di campo">
+          <div class="meta">
+            <span class="tag tag-cyan">Fotografia · Still life</span>
+            <h3 class="title">Forme</h3>
+            <p class="desc">Studio fotografico sulla profondità di campo</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-mid reveal" data-project="prism">
+        <div class="cover">
+          <img src="images/works/prism-1.jpg" alt="PRISM - Stage moda eco">
+          <div class="meta">
+            <span class="tag tag-violet">Stage · Fashion</span>
+            <h3 class="title">PRISM</h3>
+            <p class="desc">Stage in azienda moda sostenibile · Milano</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-wide reveal" data-project="spazio81">
+        <div class="cover">
+          <img src="images/works/spazio81-1.jpg" alt="Spazio81 - Stage grafica fine art">
+          <div class="meta">
+            <span class="tag tag-orange">Stage · Fine art</span>
+            <h3 class="title">Spazio 81</h3>
+            <p class="desc">Stage in laboratorio di stampa fine-art · Milano</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-tall reveal" data-project="festival">
+        <div class="cover">
+          <img src="images/works/festival-1.jpg" alt="Festival del Disegno - Volantino">
+          <div class="meta">
+            <span class="tag tag-pink">Volantino · Illustrazione</span>
+            <h3 class="title">Festival del Disegno</h3>
+            <p class="desc">Volantino A4 · BASE Milano</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-tall reveal" data-project="christmas">
+        <div class="cover">
+          <img src="images/work2/page-1.jpg" alt="Merry Christmas 2025">
+          <div class="meta">
+            <span class="tag tag-orange">Illustrazione · Poster</span>
+            <h3 class="title">Merry Christmas 2025</h3>
+            <p class="desc">Cartolina illustrata Istituto Kandinsky</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-tall reveal" data-project="instagram">
+        <div class="cover">
+          <img src="images/work3/page-1.jpg" alt="Instagram Statistiche 2023">
+          <div class="meta">
+            <span class="tag tag-purple">Infografica · Data viz</span>
+            <h3 class="title">Instagram Stats 2023</h3>
+            <p class="desc">Infografica statistiche utenti Instagram</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="work size-tall reveal" data-project="cv">
+        <div class="cover">
+          <img src="images/cv/cv-1.jpg" alt="CV Personale">
+          <div class="meta">
+            <span class="tag tag-cyan">Personal · Editoriale</span>
+            <h3 class="title">CV Personale</h3>
+            <p class="desc">Layout editoriale per il proprio curriculum vitae</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <img src="images/annamay-photo.jpg" alt="Annamay Medenilla">
+        <div class="badge">Class<br>2006</div>
+      </div>
+      <div class="about-text">
+        <div class="section-num">02 — About</div>
+        <h2 style="margin:8px 0 28px">Ciao, sono <em>Annamay</em></h2>
+        <p>Sono una graphic designer di Milano, classe 2006. Ho da poco conseguito il diploma di grafica all'Istituto Professionale W. Kandinsky e mi piace progettare cose che funzionano e che si guardano volentieri.</p>
+        <p>Lavoro principalmente con Illustrator, Photoshop e InDesign, su brochure, loghi, illustrazioni vettoriali e infografiche. Nel tempo libero gioco a basket — è lì che ho imparato il valore del lavoro di squadra.</p>
+
+        <div class="facts">
+          <div class="fact"><div class="num pink">2025</div><div class="lbl">Diploma grafica</div></div>
+          <div class="fact"><div class="num orange">3+</div><div class="lbl">Esperienze lavorative</div></div>
+          <div class="fact"><div class="num cyan">B1/B2</div><div class="lbl">Inglese</div></div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">Ott — Nov 2024</div>
+            <div class="tl-body">
+              <h4>Stage in Spazio 81 · Milano</h4>
+              <p>Azienda di grafica, design e fotografia. Lavori al computer in Illustrator e Photoshop, gestione richieste clienti.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Ago — Nov 2025</div>
+            <div class="tl-body">
+              <h4>Bun Burgers · Assago, MilanoFiori</h4>
+              <p>Servizio al cliente, gestione cassa, lavoro in team in ambienti dinamici.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2020 — 2025</div>
+            <div class="tl-body">
+              <h4>Diploma Grafica · Ist. W. Kandinsky, Milano</h4>
+              <p>Istituto Professionale Servizi Commerciali — indirizzo Grafica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-num">03 — Skills</div>
+        <h2>Competenze<br><em>& strumenti</em></h2>
+      </div>
+    </div>
+
+    <div class="skills-wrap reveal">
+      <div class="skill-block">
+        <h3>Software & tecniche</h3>
+        <div class="skill-tags">
+          <span class="chip featured">Illustrator</span>
+          <span class="chip featured">Photoshop</span>
+          <span class="chip featured">InDesign</span>
+          <span class="chip">Grafica editoriale</span>
+          <span class="chip">Logo design</span>
+          <span class="chip">Illustrazione vettoriale</span>
+          <span class="chip">Infografiche</span>
+          <span class="chip">Brochure</span>
+          <span class="chip">Layout</span>
+        </div>
+
+        <h3 style="margin-top:40px">Soft skills</h3>
+        <div class="skill-tags">
+          <span class="chip">Lavoro in team</span>
+          <span class="chip">Accoglienza</span>
+          <span class="chip">Empatia</span>
+          <span class="chip">Gestione del tempo</span>
+          <span class="chip">Problem solving</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Lingue</h3>
+        <div class="langs">
+          <div class="lang-row"><span class="lang-name">🇮🇹 Italiano</span><span class="lang-level">Madrelingua</span></div>
+          <div class="lang-row"><span class="lang-name">🇬🇧 Inglese</span><span class="lang-level">Intermedio · B1/B2</span></div>
+          <div class="lang-row"><span class="lang-name">🇩🇪 Tedesco</span><span class="lang-level">Elementare</span></div>
+        </div>
+
+        <h3 style="margin-top:40px">Interessi</h3>
+        <div class="skill-tags">
+          <span class="chip">🏀 Basket</span>
+          <span class="chip">🎨 Illustrazione</span>
+          <span class="chip">📷 Fotografia</span>
+          <span class="chip">📚 Editoria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div class="section-num">04 — Contatti</div>
+      <h2 style="margin:8px 0 24px">Lavoriamo<br><em>insieme?</em></h2>
+      <p>Hai un progetto in mente, una brochure da rifare, un logo da disegnare? Scrivimi, mi piace ascoltare nuove idee.</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:annamaymedenilla@icloud.com">
+          <div class="icon">✉️</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="val">annamaymedenilla@icloud.com</div>
+          </div>
+        </a>
+        <a class="contact-card" href="tel:+393518624194">
+          <div class="icon">📱</div>
+          <div>
+            <div class="label">Telefono</div>
+            <div class="val">+39 351 862 4194</div>
+          </div>
+        </a>
+        <div class="contact-card">
+          <div class="icon">📍</div>
+          <div>
+            <div class="label">Sede</div>
+            <div class="val">Milano, Italia</div>
+          </div>
+        </div>
+        <a class="contact-card" href="https://instagram.com/llowironz" target="_blank" rel="noopener">
+          <div class="icon">📸</div>
+          <div>
+            <div class="label">Instagram</div>
+            <div class="val">@llowironz</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 <span class="foot-brand">Annamay Medenilla</span> — Graphic Designer · Milano
+  </div>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+  <button class="lb-btn lb-close" onclick="closeLB()" aria-label="Chiudi">✕</button>
+  <button class="lb-btn lb-prev" onclick="navLB(-1)" aria-label="Precedente">‹</button>
+  <button class="lb-btn lb-next" onclick="navLB(1)" aria-label="Successiva">›</button>
+  <div class="lightbox-content">
+    <img class="lightbox-img" id="lbImg" alt="">
+    <div class="lightbox-bar">
+      <div class="lightbox-title" id="lbTitle"></div>
+      <div class="lightbox-counter" id="lbCounter"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// project galleries
+const PROJECTS = {
+  cars: {
+    title: "Cars — McQueen · Brochure",
+    images: ["images/work1/page-1.jpg","images/work1/page-2.jpg"]
+  },
+  pachitta: {
+    title: "Pachitta · Pack design pasta",
+    images: ["images/works/pachitta.jpg"]
+  },
+  flora: {
+    title: "Flora · Brand identity sapone alla lavanda",
+    images: ["images/works/flora.jpg"]
+  },
+  festival: {
+    title: "Festival del Disegno · Volantino A4",
+    images: ["images/works/festival-1.jpg","images/works/festival-2.jpg"]
+  },
+  poste: {
+    title: "Poste Delivery · Annuncio pubblicitario",
+    images: ["images/works/poste.jpg"]
+  },
+  toscanini: {
+    title: "Ritratti · Ispirati a Toscani",
+    images: ["images/works/toscanini.jpg"]
+  },
+  forme: {
+    title: "Forme · Studio sulla profondità di campo",
+    images: ["images/works/forme.jpg"]
+  },
+  prism: {
+    title: "PRISM · Stage in azienda moda sostenibile",
+    images: ["images/works/prism-1.jpg","images/works/prism-2.jpg"]
+  },
+  spazio81: {
+    title: "Spazio 81 · Stage in laboratorio fine-art",
+    images: ["images/works/spazio81-1.jpg","images/works/spazio81-2.jpg"]
+  },
+  christmas: {
+    title: "Merry Christmas 2025 · Cartolina",
+    images: ["images/work2/page-1.jpg","images/work2/page-2.jpg"]
+  },
+  instagram: {
+    title: "Instagram Statistiche 2023 · Infografica",
+    images: ["images/work3/page-1.jpg"]
+  },
+  cv: {
+    title: "CV Personale · Layout editoriale",
+    images: ["images/cv/cv-1.jpg"]
+  }
+};
+
+let lbProject=null, lbIndex=0;
+
+document.querySelectorAll('.work').forEach(el=>{
+  el.addEventListener('click',()=>{
+    openLB(el.dataset.project,0);
+  });
+});
+
+function openLB(key,idx){
+  lbProject=PROJECTS[key];
+  lbIndex=idx;
+  renderLB();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function navLB(d){
+  if(!lbProject)return;
+  lbIndex=(lbIndex+d+lbProject.images.length)%lbProject.images.length;
+  renderLB();
+}
+function renderLB(){
+  document.getElementById('lbImg').src=lbProject.images[lbIndex];
+  document.getElementById('lbTitle').textContent=lbProject.title;
+  document.getElementById('lbCounter').textContent=
+    (lbIndex+1)+' / '+lbProject.images.length;
+}
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLB();
+  if(e.key==='ArrowLeft')navLB(-1);
+  if(e.key==='ArrowRight')navLB(1);
+});
+document.getElementById('lightbox').addEventListener('click',e=>{
+  if(e.target.id==='lightbox')closeLB();
+});
+
+// reveal on scroll
+const obs=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+
+// smooth scroll close mobile menu
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('navlinks').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
