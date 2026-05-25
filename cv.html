@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CV — Annamay Medenilla · Graphic Designer</title>
+<meta name="description" content="Curriculum vitae di Annamay Medenilla, graphic designer di Milano. Formazione, esperienze, competenze e contatti." />
+<meta name="theme-color" content="#0e0a1e" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+@font-face{
+  font-family:'Eternalo';
+  src:url('fonts/Eternalo.ttf') format('truetype');
+  font-display:swap;
+}
+:root{
+  --bg:#0e0a1e;
+  --bg-2:#15102b;
+  --ink:#fff8ee;
+  --ink-dim:rgba(255,248,238,.65);
+  --pink:#ff3ea5;
+  --orange:#ff8a3d;
+  --yellow:#ffd23f;
+  --cyan:#3df0ff;
+  --purple:#9d4dff;
+  --green:#3ddc84;
+  --card:#1a1432;
+  --card-2:#231944;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+
+/* ===== animated blobs ===== */
+.bg-blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;animation:float 18s ease-in-out infinite}
+.blob.b1{width:520px;height:520px;background:var(--purple);top:-120px;left:-120px}
+.blob.b2{width:460px;height:460px;background:var(--cyan);top:30%;right:-180px;animation-delay:-6s;opacity:.3}
+.blob.b3{width:420px;height:420px;background:var(--pink);bottom:-160px;left:30%;animation-delay:-12s;opacity:.3}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(40px,-30px) scale(1.07)}
+}
+
+/* ===== nav ===== */
+nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(14,10,30,.6);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1100px;margin:0 auto}
+.logo{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-size:22px;letter-spacing:.04em}
+.logo span{background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-right:.15em;margin-right:-.1em}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-weight:500;font-size:14.5px;color:var(--ink-dim);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.cta{
+  background:linear-gradient(90deg,var(--pink),var(--orange));
+  color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:13.5px;
+}
+.nav-links a.cta:hover{color:#fff;transform:translateY(-1px)}
+.menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:24px;cursor:pointer}
+
+/* ===== sections ===== */
+section{padding:80px 0;position:relative}
+.section-head{margin-bottom:50px}
+.section-num{
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-style:italic;
+  color:var(--ink-dim);font-size:14px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;
+}
+h1{
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;
+  font-size:clamp(44px,7vw,84px);line-height:1.02;letter-spacing:.02em;margin:0 0 24px;
+}
+h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,var(--cyan),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block;
+  padding:.05em .2em .15em 0;margin-right:-.15em;
+}
+h2{
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;
+  font-size:clamp(32px,4.5vw,52px);line-height:1.1;letter-spacing:.025em;margin:0;
+  padding-bottom:.12em;
+}
+h2 em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block;padding:.05em .2em .15em 0;margin-right:-.15em;
+}
+
+/* ===== hero CV ===== */
+.cv-hero{padding:70px 0 50px}
+.cv-hero-grid{display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:center}
+.cv-photo{position:relative}
+.cv-photo img{
+  border-radius:24px;width:100%;
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+.cv-photo::before{
+  content:"";position:absolute;inset:-12px;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  border-radius:32px;z-index:-1;opacity:.6;
+  filter:blur(20px);
+}
+.cv-photo .badge{
+  position:absolute;bottom:-18px;right:-18px;
+  background:var(--yellow);color:#0e0a1e;
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-style:italic;
+  padding:14px 20px;border-radius:16px;
+  font-size:16px;line-height:1.1;
+  transform:rotate(-6deg);
+  box-shadow:0 10px 30px rgba(255,210,63,.4);
+  letter-spacing:.02em;
+}
+.cv-intro p{font-size:17px;color:rgba(255,248,238,.85);margin:0 0 16px;max-width:540px;line-height:1.65}
+.cv-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px}
+.cv-meta-item{
+  padding:14px 18px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;
+}
+.cv-meta-item .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:4px}
+.cv-meta-item .val{font-weight:600;font-size:14.5px}
+
+/* ===== timeline ===== */
+.timeline{display:grid;gap:0}
+.tl-item{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)}
+.tl-item:last-child{border-bottom:1px solid rgba(255,255,255,.08)}
+.tl-date{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-style:italic;color:var(--yellow);font-size:15px;letter-spacing:.04em}
+.tl-body h4{margin:0 0 6px;font-size:19px;font-weight:700;letter-spacing:.01em}
+.tl-body .place{display:inline-block;margin:0 0 10px;font-size:13px;color:var(--cyan);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.tl-body p{margin:0;color:var(--ink-dim);font-size:15px;line-height:1.6}
+
+/* ===== skills ===== */
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.skill-block h3{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:22px;margin:0 0 20px;letter-spacing:.025em}
+.skill-tags{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:14px;font-weight:500;
+  transition:all .25s;
+}
+.chip:hover{transform:translateY(-2px);border-color:var(--cyan);color:var(--cyan)}
+.chip.featured{background:linear-gradient(90deg,var(--cyan),var(--purple));border:0;color:#fff;font-weight:600}
+.chip.featured:hover{color:#fff;transform:translateY(-2px) scale(1.04)}
+.langs{display:grid;gap:12px}
+.lang-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px}
+.lang-name{font-weight:600}
+.lang-level{font-size:13px;color:var(--ink-dim);font-style:italic;font-family:'Fraunces',serif}
+
+/* ===== contact ===== */
+.contact{
+  border-radius:32px;
+  background:linear-gradient(135deg,rgba(61,240,255,.15),rgba(157,77,255,.18));
+  border:1px solid rgba(255,255,255,.12);
+  padding:60px 50px;text-align:center;position:relative;overflow:hidden;
+}
+.contact::before{
+  content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  background:var(--cyan);filter:blur(120px);opacity:.3;top:-100px;right:-50px;
+}
+.contact h2{margin-bottom:18px;position:relative}
+.contact p{font-size:17px;color:rgba(255,248,238,.85);max-width:540px;margin:0 auto 36px;position:relative;line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:600px;margin:0 auto;position:relative}
+.contact-card{
+  padding:20px;background:rgba(14,10,30,.5);
+  border:1px solid rgba(255,255,255,.1);border-radius:18px;
+  display:flex;align-items:center;gap:14px;text-align:left;
+  transition:all .25s;
+}
+.contact-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.contact-card .icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.contact-card .label{font-size:12px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.08em}
+.contact-card .val{font-weight:600;font-size:14px;margin-top:2px;word-break:break-all}
+
+.back-cta{
+  text-align:center;margin-top:50px;
+}
+.back-cta a{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);
+  color:var(--ink);font-weight:600;font-size:14.5px;
+  transition:all .25s;
+}
+.back-cta a:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+/* ===== footer ===== */
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;color:var(--ink-dim);font-size:14px}
+footer .foot-brand{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-style:italic;color:var(--ink)}
+
+/* ===== responsive ===== */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;
+    top:100%;left:0;right:0;background:var(--bg-2);padding:20px 28px;
+    border-bottom:1px solid rgba(255,255,255,.08);gap:18px;align-items:flex-start;
+  }
+  .cv-hero-grid{grid-template-columns:1fr;gap:40px}
+  .cv-photo{max-width:260px;margin:0 auto}
+  .skills-wrap{grid-template-columns:1fr;gap:40px}
+  .contact{padding:50px 24px}
+  .contact-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:6px;padding:20px 0}
+  section{padding:60px 0}
+  .cv-hero{padding:40px 0 30px}
+}
+
+/* fade-in */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+
+<body>
+
+<div class="bg-blobs">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Annamay <span>Medenilla</span></a>
+    <button class="menu-btn" aria-label="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="#profilo">Profilo</a>
+      <a href="#esperienze">Esperienze</a>
+      <a href="#competenze">Competenze</a>
+      <a href="#contatti">Contatti</a>
+      <a href="index.html" class="cta">Portfolio →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="cv-hero" id="profilo">
+  <div class="container">
+    <div class="cv-hero-grid reveal">
+      <div class="cv-photo">
+        <img src="images/annamay-photo.jpg" alt="Annamay Medenilla">
+        <div class="badge">Class<br>2006</div>
+      </div>
+      <div class="cv-intro">
+        <div class="section-num">Curriculum Vitae</div>
+        <h1>Annamay<br><em>Medenilla</em></h1>
+        <p>Graphic designer, 20 anni, diplomata all'Istituto Professionale W. Kandinsky di Milano con specializzazione in grafica. Esperienza pratica in studio di design e attitudine al lavoro in team.</p>
+        <p>Cerco opportunità in studi grafici e agenzie creative dove crescere come designer, contribuire a progetti reali e continuare a imparare.</p>
+        <div class="cv-meta">
+          <div class="cv-meta-item">
+            <div class="lbl">Sede</div>
+            <div class="val">Milano, Italia</div>
+          </div>
+          <div class="cv-meta-item">
+            <div class="lbl">Diploma</div>
+            <div class="val">Grafica · 2025</div>
+          </div>
+          <div class="cv-meta-item">
+            <div class="lbl">Disponibilità</div>
+            <div class="val">Immediata</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="esperienze">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-num">01 — Esperienze</div>
+      <h2>Percorso <em>professionale</em></h2>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-date">Ott — Nov 2024</div>
+        <div class="tl-body">
+          <h4>Spazio 81</h4>
+          <span class="place">Milano · Studio grafico</span>
+          <p>Esperienza in studio di grafica, design e fotografia. Lavori in Illustrator e Photoshop su progetti editoriali e brand. Gestione richieste clienti e supporto operativo al team.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Ago — Nov 2025</div>
+        <div class="tl-body">
+          <h4>Bun Burgers</h4>
+          <span class="place">Assago, MilanoFiori</span>
+          <p>Servizio al cliente, gestione cassa, lavoro in team in ambienti dinamici. Sviluppata capacità di gestire pressione e ritmi serrati mantenendo qualità del servizio.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2020 — 2025</div>
+        <div class="tl-body">
+          <h4>Diploma in Grafica</h4>
+          <span class="place">Istituto Professionale W. Kandinsky · Milano</span>
+          <p>Istituto Professionale Servizi Commerciali — indirizzo Grafica. Percorso completo su strumenti Adobe, teoria del colore, tipografia, impaginazione editoriale e progettazione visiva.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competenze">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-num">02 — Competenze</div>
+      <h2>Strumenti & <em>skill</em></h2>
+    </div>
+
+    <div class="skills-wrap reveal">
+      <div class="skill-block">
+        <h3>Software & tecniche</h3>
+        <div class="skill-tags">
+          <span class="chip featured">Illustrator</span>
+          <span class="chip featured">Photoshop</span>
+          <span class="chip featured">InDesign</span>
+          <span class="chip">Grafica editoriale</span>
+          <span class="chip">Logo design</span>
+          <span class="chip">Illustrazione vettoriale</span>
+          <span class="chip">Infografiche</span>
+          <span class="chip">Brochure</span>
+          <span class="chip">Layout</span>
+        </div>
+
+        <h3 style="margin-top:36px">Soft skills</h3>
+        <div class="skill-tags">
+          <span class="chip">Lavoro in team</span>
+          <span class="chip">Accoglienza</span>
+          <span class="chip">Empatia</span>
+          <span class="chip">Gestione del tempo</span>
+          <span class="chip">Problem solving</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Lingue</h3>
+        <div class="langs">
+          <div class="lang-row"><span class="lang-name">🇮🇹 Italiano</span><span class="lang-level">Madrelingua</span></div>
+          <div class="lang-row"><span class="lang-name">🇬🇧 Inglese</span><span class="lang-level">Intermedio · B1/B2</span></div>
+        </div>
+
+        <h3 style="margin-top:36px">Interessi</h3>
+        <div class="skill-tags">
+          <span class="chip">🏀 Basket</span>
+          <span class="chip">🎨 Illustrazione</span>
+          <span class="chip">📷 Fotografia</span>
+          <span class="chip">📚 Editoria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="container">
+    <div class="contact reveal">
+      <div class="section-num">03 — Contatti</div>
+      <h2 style="margin:8px 0 18px">Parliamone <em>insieme</em></h2>
+      <p>Per opportunità in studio, colloqui o richieste di informazioni puoi contattarmi direttamente.</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:annamaymedenilla@icloud.com">
+          <div class="icon">✉️</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="val">annamaymedenilla@icloud.com</div>
+          </div>
+        </a>
+        <a class="contact-card" href="tel:+393518624194">
+          <div class="icon">📱</div>
+          <div>
+            <div class="label">Telefono</div>
+            <div class="val">+39 351 862 4194</div>
+          </div>
+        </a>
+        <div class="contact-card">
+          <div class="icon">📍</div>
+          <div>
+            <div class="label">Sede</div>
+            <div class="val">Milano, Italia</div>
+          </div>
+        </div>
+        <a class="contact-card" href="https://instagram.com/llowironz" target="_blank" rel="noopener">
+          <div class="icon">📸</div>
+          <div>
+            <div class="label">Instagram</div>
+            <div class="val">@llowironz</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="back-cta reveal">
+      <a href="index.html">← Torna al portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 <span class="foot-brand">Annamay Medenilla</span> — Graphic Designer · Milano
+  </div>
+</footer>
+
+<script>
+// reveal on scroll
+const obs=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+
+// smooth scroll close mobile menu
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('navlinks').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>

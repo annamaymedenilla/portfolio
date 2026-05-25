@@ -13,8 +13,8 @@
 
 <style>
 @font-face{
-  font-family:'Mudstone Sans';
-  src:url('fonts/mudstone-sans.ttf') format('truetype');
+  font-family:'Eternalo';
+  src:url('fonts/Eternalo.ttf') format('truetype');
   font-display:swap;
 }
 :root{
@@ -64,11 +64,17 @@ nav{
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1200px;margin:0 auto}
-.logo{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:22px;letter-spacing:.04em}
+.logo{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-size:22px;letter-spacing:.04em}
 .logo span{background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;padding-right:.15em;margin-right:-.1em}
-.nav-links{display:flex;gap:28px}
+.nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-weight:500;font-size:14.5px;color:var(--ink-dim);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
+.nav-links a.nav-cv{
+  padding:8px 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.2);
+  color:var(--ink);font-weight:600;font-size:13.5px;
+}
+.nav-links a.nav-cv:hover{background:rgba(255,255,255,.08);border-color:var(--cyan)}
 .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:24px;cursor:pointer}
 
 /* ===== hero ===== */
@@ -83,11 +89,11 @@ nav{
 }
 .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
 h1.hero-title{
-  font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-weight:900;
-  font-size:clamp(56px,10vw,140px);
-  line-height:.92;
-  letter-spacing:.03em;
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:400;
+  font-size:clamp(50px,8.5vw,120px);
+  line-height:.98;
+  letter-spacing:.02em;
   margin:0 0 28px;
 }
 h1.hero-title .grad{
@@ -98,8 +104,8 @@ h1.hero-title .grad{
   margin-right:-.12em;
 }
 .hero-sub{
-  font-size:clamp(18px,2.2vw,22px);
-  max-width:680px;color:var(--ink-dim);margin:0 0 44px;
+  font-size:clamp(17px,1.8vw,20px);
+  max-width:640px;color:rgba(255,248,238,.85);margin:0 0 44px;line-height:1.6;
 }
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .btn{
@@ -130,8 +136,8 @@ h1.hero-title .grad{
   padding:18px 0;
 }
 .marquee-track{display:flex;gap:60px;animation:scroll 28s linear infinite;white-space:nowrap}
-.marquee-track span{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-style:italic;font-size:28px;color:var(--ink-dim)}
-.marquee-track span b{color:var(--ink);font-weight:900;font-style:normal}
+.marquee-track span{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-style:italic;font-size:26px;color:var(--ink-dim);font-weight:400}
+.marquee-track span b{color:var(--ink);font-weight:500;font-style:normal}
 .marquee-track .star{color:var(--yellow)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -139,12 +145,12 @@ h1.hero-title .grad{
 section{padding:100px 0;position:relative}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:60px;flex-wrap:wrap}
 .section-num{
-  font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-style:italic;
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:500;font-style:italic;
   color:var(--ink-dim);font-size:14px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;
 }
 h2{
-  font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;
-  font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:.035em;margin:0;
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;
+  font-size:clamp(36px,5vw,60px);line-height:1.08;letter-spacing:.025em;margin:0;
   padding-bottom:.12em;
 }
 h2 em{
@@ -156,6 +162,39 @@ h2 em{
   margin-right:-.18em;
 }
 
+/* ===== services ===== */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.service{
+  padding:32px 26px;border-radius:var(--radius);
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .3s,border-color .3s;
+  display:flex;flex-direction:column;gap:14px;
+}
+.service:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
+.service .icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.service.s1 .icon{background:linear-gradient(135deg,var(--pink),var(--orange))}
+.service.s2 .icon{background:linear-gradient(135deg,var(--green),var(--cyan))}
+.service.s3 .icon{background:linear-gradient(135deg,var(--purple),var(--pink))}
+.service.s4 .icon{background:linear-gradient(135deg,var(--yellow),var(--orange))}
+.service h3{
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:400;font-size:21px;line-height:1.2;letter-spacing:.025em;
+  margin:0;
+}
+.service p{margin:0;color:var(--ink-dim);font-size:14.5px;line-height:1.55}
+@media (max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .service{padding:24px 20px}
+}
+@media (max-width:520px){
+  .services-grid{grid-template-columns:1fr}
+}
+
 /* ===== works ===== */
 .works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
 .work{
@@ -164,20 +203,21 @@ h2 em{
   transition:transform .35s cubic-bezier(.2,.7,.3,1);
 }
 .work:hover{transform:translateY(-6px)}
-.work img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block}
-.work:hover img{transform:scale(1.04)}
-.work .cover{position:relative;overflow:hidden;width:100%}
+.work img{width:100%;height:100%;object-fit:contain;transition:transform .6s;display:block;padding:14px}
+.work:hover img{transform:scale(1.03)}
+.work .cover{position:relative;overflow:hidden;width:100%;background:linear-gradient(135deg,#1a1432,#231944)}
 .work .meta{
   position:absolute;left:0;right:0;bottom:0;padding:24px;
   background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.85) 100%);
   z-index:2;
 }
 .work .tag{
-  display:inline-block;padding:5px 12px;border-radius:999px;
-  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+  display:inline-block;padding:6px 14px;border-radius:999px;
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
   margin-bottom:10px;
+  backdrop-filter:blur(8px);
 }
-.work .title{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;line-height:1.1;letter-spacing:.04em;margin:0}
+.work .title{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:22px;line-height:1.15;letter-spacing:.03em;margin:0}
 .work .desc{font-size:13.5px;color:var(--ink-dim);margin:6px 0 0}
 
 /* horizontal hero card (Cars brochure) — full width, ~7:5 matches spread */
@@ -192,14 +232,13 @@ h2 em{
 .work.size-tall{grid-column:span 3}
 .work.size-tall .cover{aspect-ratio:5/7}
 
-.tag-green{background:rgba(61,220,132,.18);color:#7ee0a4;border:1px solid rgba(61,220,132,.4)}
-.tag-violet{background:rgba(180,120,255,.2);color:#d8b4ff;border:1px solid rgba(180,120,255,.4)}
-.tag-yellow{background:rgba(255,210,63,.18);color:#ffe07a;border:1px solid rgba(255,210,63,.4)}
-
-.tag-pink{background:rgba(255,62,165,.2);color:#ff84c4;border:1px solid rgba(255,62,165,.4)}
-.tag-orange{background:rgba(255,138,61,.2);color:#ffb380;border:1px solid rgba(255,138,61,.4)}
-.tag-purple{background:rgba(157,77,255,.2);color:#c8a4ff;border:1px solid rgba(157,77,255,.4)}
-.tag-cyan{background:rgba(61,240,255,.18);color:#7ef0ff;border:1px solid rgba(61,240,255,.4)}
+.tag-green{background:#3ddc84;color:#0a2818;border:0}
+.tag-violet{background:#c8a4ff;color:#2a134f;border:0}
+.tag-yellow{background:#ffd23f;color:#3d2800;border:0}
+.tag-pink{background:#ff3ea5;color:#3d0021;border:0}
+.tag-orange{background:#ff8a3d;color:#3d1f00;border:0}
+.tag-purple{background:#9d4dff;color:#fff;border:0}
+.tag-cyan{background:#3df0ff;color:#003d44;border:0}
 
 /* ===== about ===== */
 .about-grid{display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
@@ -217,17 +256,17 @@ h2 em{
 .about-photo .badge{
   position:absolute;bottom:-20px;right:-20px;
   background:var(--yellow);color:#0e0a1e;
-  font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-style:italic;
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-style:italic;
   padding:18px 24px;border-radius:18px;
   font-size:18px;line-height:1;
   transform:rotate(-6deg);
   box-shadow:0 10px 30px rgba(255,210,63,.4);
 }
 .about-text p{font-size:17px;color:var(--ink-dim);margin:0 0 18px;max-width:560px}
-.about-text h3{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:34px;margin:0 0 24px;color:var(--ink)}
+.about-text h3{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:30px;margin:0 0 24px;color:var(--ink);letter-spacing:.02em}
 .facts{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px}
 .fact{padding:18px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;min-width:130px}
-.fact .num{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:34px;line-height:1}
+.fact .num{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:34px;line-height:1}
 .fact .num.pink{color:var(--pink)}
 .fact .num.orange{color:var(--orange)}
 .fact .num.cyan{color:var(--cyan)}
@@ -237,13 +276,13 @@ h2 em{
 .timeline{margin-top:50px;display:grid;gap:18px}
 .tl-item{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:18px 0;border-top:1px solid rgba(255,255,255,.08)}
 .tl-item:last-child{border-bottom:1px solid rgba(255,255,255,.08)}
-.tl-date{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:600;font-style:italic;color:var(--yellow);font-size:14px;letter-spacing:.05em}
+.tl-date{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:600;font-style:italic;color:var(--yellow);font-size:14px;letter-spacing:.05em}
 .tl-body h4{margin:0 0 4px;font-size:18px;font-weight:700}
 .tl-body p{margin:0;color:var(--ink-dim);font-size:14.5px}
 
 /* ===== skills ===== */
 .skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px}
-.skill-block h3{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;margin:0 0 24px}
+.skill-block h3{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:24px;margin:0 0 24px;letter-spacing:.025em}
 .skill-tags{display:flex;flex-wrap:wrap;gap:10px}
 .chip{
   padding:10px 18px;border-radius:999px;
@@ -292,7 +331,7 @@ h2 em{
 
 /* ===== footer ===== */
 footer{padding:40px 0;border-top:1px solid rgba(255,255,255,.08);text-align:center;color:var(--ink-dim);font-size:14px}
-footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-style:italic;color:var(--ink)}
+footer .foot-brand{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-style:italic;color:var(--ink)}
 
 /* ===== lightbox ===== */
 .lightbox{
@@ -316,7 +355,7 @@ footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,
   display:flex;align-items:center;justify-content:space-between;
   width:100%;color:var(--ink);
 }
-.lightbox-title{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:20px}
+.lightbox-title{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;font-size:20px;letter-spacing:.02em}
 .lightbox-counter{color:var(--ink-dim);font-size:14px}
 .lb-btn{
   width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);
@@ -370,28 +409,28 @@ footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,
     <a href="#top" class="logo">Annamay <span>Medenilla</span></a>
     <button class="menu-btn" aria-label="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
     <div class="nav-links" id="navlinks">
+      <a href="#services">Servizi</a>
       <a href="#works">Lavori</a>
-      <a href="#about">Chi sono</a>
-      <a href="#skills">Competenze</a>
       <a href="#contact">Contatti</a>
+      <a href="cv.html" class="nav-cv">CV →</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span> Disponibile per nuovi progetti</div>
+    <div class="eyebrow"><span class="dot"></span> Disponibile per progetti freelance</div>
     <h1 class="hero-title">
-      Graphic<br>
-      designer<br>
-      <span class="grad">creativa.</span>
+      Identità visive<br>
+      <span class="grad">su misura</span><br>
+      per il tuo brand.
     </h1>
     <p class="hero-sub">
-      Mi chiamo Annamay, ho 20 anni e disegno idee. Brochure, infografiche, illustrazioni e progetti editoriali nati con Illustrator, Photoshop e InDesign.
+      Sono Annamay, graphic designer a Milano. Aiuto piccole aziende, brand emergenti e creator a tradurre idee in progetti grafici riconoscibili: logo, packaging, brochure, illustrazioni e materiali editoriali.
     </p>
     <div class="hero-cta">
-      <a href="#works" class="btn btn-primary">Vedi i lavori →</a>
-      <a href="#contact" class="btn btn-ghost">Scrivimi</a>
+      <a href="#contact" class="btn btn-primary">Iniziamo un progetto →</a>
+      <a href="#works" class="btn btn-ghost">Vedi i lavori</a>
     </div>
   </div>
   <div class="marquee">
@@ -412,35 +451,70 @@ footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,
   </div>
 </header>
 
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-num">01 — Servizi</div>
+        <h2>Cosa posso fare<br>per <em>il tuo brand</em></h2>
+      </div>
+      <p style="max-width:360px;color:var(--ink-dim);margin:0">Progetti grafici su misura per piccole aziende, brand emergenti e creator che vogliono comunicare con personalità.</p>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service s1">
+        <div class="icon">✦</div>
+        <h3>Brand identity</h3>
+        <p>Logo, palette colori, sistema visivo coerente. Costruiamo l'identità del tuo brand da zero o la rifacciamo da capo.</p>
+      </div>
+      <div class="service s2">
+        <div class="icon">◇</div>
+        <h3>Packaging</h3>
+        <p>Pack design, etichette e fustelle per prodotti food, beauty e lifestyle. Dalla grafica al file pronto per la stampa.</p>
+      </div>
+      <div class="service s3">
+        <div class="icon">▤</div>
+        <h3>Editoriale</h3>
+        <p>Brochure, cataloghi, magazine, volantini. Impaginazione professionale per progetti stampa e digitali.</p>
+      </div>
+      <div class="service s4">
+        <div class="icon">✱</div>
+        <h3>Illustrazione</h3>
+        <p>Illustrazioni vettoriali, infografiche, poster. Un tocco personale per dare carattere ai tuoi contenuti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="works">
   <div class="container">
     <div class="section-head reveal">
       <div>
-        <div class="section-num">01 — Portfolio</div>
+        <div class="section-num">02 — Portfolio</div>
         <h2>Lavori<br><em>selezionati</em></h2>
       </div>
-      <p style="max-width:340px;color:var(--ink-dim);margin:0">Una selezione di progetti tra brochure, illustrazioni e infografiche. Clicca su ogni progetto per vedere tutte le pagine.</p>
+      <p style="max-width:360px;color:var(--ink-dim);margin:0">Una selezione di progetti di brand identity, packaging, editoriale e illustrazione. Clicca su ogni progetto per esplorarlo nel dettaglio.</p>
     </div>
 
     <div class="works-grid">
 
       <article class="work size-wide reveal" data-project="cars">
         <div class="cover">
-          <img src="images/work1/page-1.jpg" alt="Cars - Brochure McQueen">
+          <img src="images/work1/page-1.jpg" alt="Brochure editoriale Cars">
           <div class="meta">
             <span class="tag tag-pink">Brochure · Editoriale</span>
-            <h3 class="title">Cars — McQueen</h3>
-            <p class="desc">Brochure tri-pannello dedicata alla saga Pixar Cars</p>
+            <h3 class="title">Brochure editoriale — Cars</h3>
+            <p class="desc">Progetto tri-pannello dedicato alla saga Pixar</p>
           </div>
         </div>
       </article>
 
       <article class="work size-mid reveal" data-project="pachitta">
         <div class="cover">
-          <img src="images/works/pachitta.jpg" alt="Pachitta - Pack design pasta">
+          <img src="images/works/pachitta.jpg" alt="Packaging pasta Pachitta">
           <div class="meta">
             <span class="tag tag-green">Packaging · Brand</span>
-            <h3 class="title">Pachitta</h3>
+            <h3 class="title">Packaging pasta — Pachitta</h3>
             <p class="desc">Pack design e fustella per pasta sarda Rigatoni n°89</p>
           </div>
         </div>
@@ -448,215 +522,114 @@ footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,
 
       <article class="work size-mid reveal" data-project="flora">
         <div class="cover">
-          <img src="images/works/flora.jpg" alt="Flora - Brand identity sapone alla lavanda">
+          <img src="images/works/flora.jpg" alt="Brand identity Flora">
           <div class="meta">
             <span class="tag tag-violet">Brand identity · Logo</span>
-            <h3 class="title">Flora</h3>
-            <p class="desc">Brand identity per sapone artigianale alla lavanda</p>
+            <h3 class="title">Brand identity — Flora</h3>
+            <p class="desc">Identità visiva per sapone artigianale alla lavanda</p>
           </div>
         </div>
       </article>
 
       <article class="work size-mid reveal" data-project="poste">
         <div class="cover">
-          <img src="images/works/poste.jpg" alt="Poste Delivery - Annuncio pubblicitario">
+          <img src="images/works/poste.jpg" alt="Annuncio pubblicitario Poste Delivery">
           <div class="meta">
-            <span class="tag tag-yellow">Adv · Visual</span>
-            <h3 class="title">Poste Delivery</h3>
-            <p class="desc">Annuncio pubblicitario A4 — visual per Poste Italiane</p>
+            <span class="tag tag-yellow">Advertising · Print</span>
+            <h3 class="title">Campagna stampa — Poste Delivery</h3>
+            <p class="desc">Visual A4 per Poste Italiane</p>
           </div>
         </div>
       </article>
 
       <article class="work size-mid reveal" data-project="toscani">
         <div class="cover">
-          <img src="images/works/toscani.jpg" alt="Ritratti ispirati a Toscani">
+          <img src="images/works/toscani.jpg" alt="Serie ritratti fotografici">
           <div class="meta">
             <span class="tag tag-cyan">Fotografia · Ritratto</span>
-            <h3 class="title">Ritratti</h3>
-            <p class="desc">Serie fotografica ispirata ai ritratti di Toscani</p>
+            <h3 class="title">Serie ritratti — omaggio a Toscani</h3>
+            <p class="desc">Progetto fotografico in studio</p>
           </div>
         </div>
       </article>
 
       <article class="work size-mid reveal" data-project="forme">
         <div class="cover">
-          <img src="images/works/forme.jpg" alt="Forme - Studio profondità di campo">
+          <img src="images/works/forme.jpg" alt="Still life fotografico Forme">
           <div class="meta">
             <span class="tag tag-cyan">Fotografia · Still life</span>
-            <h3 class="title">Forme</h3>
-            <p class="desc">Studio fotografico sulla profondità di campo</p>
+            <h3 class="title">Still life — studio sulla profondità</h3>
+            <p class="desc">Serie fotografica sulla profondità di campo</p>
           </div>
         </div>
       </article>
 
       <article class="work size-mid reveal" data-project="prism">
         <div class="cover">
-          <img src="images/works/prism-1.jpg" alt="PRISM - Stage moda eco">
+          <img src="images/works/prism-1.jpg" alt="Progetto moda sostenibile PRISM">
           <div class="meta">
-            <span class="tag tag-violet">Stage · Fashion</span>
-            <h3 class="title">PRISM</h3>
-            <p class="desc">Stage in azienda moda sostenibile · Milano</p>
+            <span class="tag tag-violet">Brand · Moda sostenibile</span>
+            <h3 class="title">PRISM — moda sostenibile</h3>
+            <p class="desc">Progetto grafico per azienda moda eco · Milano</p>
           </div>
         </div>
       </article>
 
       <article class="work size-wide reveal" data-project="spazio81">
         <div class="cover">
-          <img src="images/works/spazio81-1.jpg" alt="Spazio81 - Stage grafica fine art">
+          <img src="images/works/spazio81-1.jpg" alt="Progetto grafico Spazio 81">
           <div class="meta">
-            <span class="tag tag-orange">Stage · Fine art</span>
-            <h3 class="title">Spazio 81</h3>
-            <p class="desc">Stage in laboratorio di stampa fine-art · Milano</p>
+            <span class="tag tag-orange">Studio grafico · Fine art</span>
+            <h3 class="title">Spazio 81 — laboratorio fine-art</h3>
+            <p class="desc">Progetti grafici per laboratorio di stampa · Milano</p>
           </div>
         </div>
       </article>
 
       <article class="work size-tall reveal" data-project="festival">
         <div class="cover">
-          <img src="images/works/festival-1.jpg" alt="Festival del Disegno - Volantino">
+          <img src="images/works/festival-1.jpg" alt="Volantino Festival del Disegno">
           <div class="meta">
             <span class="tag tag-pink">Volantino · Illustrazione</span>
-            <h3 class="title">Festival del Disegno</h3>
-            <p class="desc">Volantino A4 · BASE Milano</p>
+            <h3 class="title">Festival del Disegno — volantino</h3>
+            <p class="desc">Volantino A4 per evento · BASE Milano</p>
           </div>
         </div>
       </article>
 
       <article class="work size-tall reveal" data-project="christmas">
         <div class="cover">
-          <img src="images/work2/page-1.jpg" alt="Merry Christmas 2025">
+          <img src="images/work2/page-1.jpg" alt="Cartolina illustrata Natale">
           <div class="meta">
             <span class="tag tag-orange">Illustrazione · Poster</span>
-            <h3 class="title">Merry Christmas 2025</h3>
-            <p class="desc">Cartolina illustrata Istituto Kandinsky</p>
+            <h3 class="title">Cartolina di Natale — illustrazione</h3>
+            <p class="desc">Auguri illustrati per Istituto Kandinsky</p>
           </div>
         </div>
       </article>
 
       <article class="work size-tall reveal" data-project="instagram">
         <div class="cover">
-          <img src="images/work3/page-1.jpg" alt="Instagram Statistiche 2023">
+          <img src="images/work3/page-1.jpg" alt="Infografica Instagram statistiche">
           <div class="meta">
             <span class="tag tag-purple">Infografica · Data viz</span>
-            <h3 class="title">Instagram Stats 2023</h3>
-            <p class="desc">Infografica statistiche utenti Instagram</p>
+            <h3 class="title">Infografica — Instagram in numeri</h3>
+            <p class="desc">Visualizzazione dati su utenti Instagram</p>
           </div>
         </div>
       </article>
 
       <article class="work size-tall reveal" data-project="cv">
         <div class="cover">
-          <img src="images/cv/cv-1.jpg" alt="CV Personale">
+          <img src="images/cv/cv-1.jpg" alt="Layout editoriale CV personale">
           <div class="meta">
-            <span class="tag tag-cyan">Personal · Editoriale</span>
-            <h3 class="title">CV Personale</h3>
-            <p class="desc">Layout editoriale per il proprio curriculum vitae</p>
+            <span class="tag tag-cyan">Editoriale · Personal</span>
+            <h3 class="title">Curriculum — layout editoriale</h3>
+            <p class="desc">Progetto di impaginazione per CV</p>
           </div>
         </div>
       </article>
 
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <div class="about-grid reveal">
-      <div class="about-photo">
-        <img src="images/annamay-photo.jpg" alt="Annamay Medenilla">
-        <div class="badge">Class<br>2006</div>
-      </div>
-      <div class="about-text">
-        <div class="section-num">02 — About</div>
-        <h2 style="margin:8px 0 28px">Ciao, sono <em>Annamay</em></h2>
-        <p>Sono una graphic designer di Milano, classe 2006. Ho da poco conseguito il diploma di grafica all'Istituto Professionale W. Kandinsky e mi piace progettare cose che funzionano e che si guardano volentieri.</p>
-        <p>Lavoro principalmente con Illustrator, Photoshop e InDesign, su brochure, loghi, illustrazioni vettoriali e infografiche. Nel tempo libero gioco a basket — è lì che ho imparato il valore del lavoro di squadra.</p>
-
-        <div class="facts">
-          <div class="fact"><div class="num pink">2025</div><div class="lbl">Diploma grafica</div></div>
-          <div class="fact"><div class="num orange">3+</div><div class="lbl">Esperienze lavorative</div></div>
-          <div class="fact"><div class="num cyan">B1/B2</div><div class="lbl">Inglese</div></div>
-        </div>
-
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-date">Ott — Nov 2024</div>
-            <div class="tl-body">
-              <h4>Stage in Spazio 81 · Milano</h4>
-              <p>Azienda di grafica, design e fotografia. Lavori al computer in Illustrator e Photoshop, gestione richieste clienti.</p>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">Ago — Nov 2025</div>
-            <div class="tl-body">
-              <h4>Bun Burgers · Assago, MilanoFiori</h4>
-              <p>Servizio al cliente, gestione cassa, lavoro in team in ambienti dinamici.</p>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2020 — 2025</div>
-            <div class="tl-body">
-              <h4>Diploma Grafica · Ist. W. Kandinsky, Milano</h4>
-              <p>Istituto Professionale Servizi Commerciali — indirizzo Grafica.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="section-num">03 — Skills</div>
-        <h2>Competenze<br><em>& strumenti</em></h2>
-      </div>
-    </div>
-
-    <div class="skills-wrap reveal">
-      <div class="skill-block">
-        <h3>Software & tecniche</h3>
-        <div class="skill-tags">
-          <span class="chip featured">Illustrator</span>
-          <span class="chip featured">Photoshop</span>
-          <span class="chip featured">InDesign</span>
-          <span class="chip">Grafica editoriale</span>
-          <span class="chip">Logo design</span>
-          <span class="chip">Illustrazione vettoriale</span>
-          <span class="chip">Infografiche</span>
-          <span class="chip">Brochure</span>
-          <span class="chip">Layout</span>
-        </div>
-
-        <h3 style="margin-top:40px">Soft skills</h3>
-        <div class="skill-tags">
-          <span class="chip">Lavoro in team</span>
-          <span class="chip">Accoglienza</span>
-          <span class="chip">Empatia</span>
-          <span class="chip">Gestione del tempo</span>
-          <span class="chip">Problem solving</span>
-        </div>
-      </div>
-
-      <div class="skill-block">
-        <h3>Lingue</h3>
-        <div class="langs">
-          <div class="lang-row"><span class="lang-name">🇮🇹 Italiano</span><span class="lang-level">Madrelingua</span></div>
-          <div class="lang-row"><span class="lang-name">🇬🇧 Inglese</span><span class="lang-level">Intermedio · B1/B2</span></div>
-          <div class="lang-row"><span class="lang-name">🇩🇪 Tedesco</span><span class="lang-level">Elementare</span></div>
-        </div>
-
-        <h3 style="margin-top:40px">Interessi</h3>
-        <div class="skill-tags">
-          <span class="chip">🏀 Basket</span>
-          <span class="chip">🎨 Illustrazione</span>
-          <span class="chip">📷 Fotografia</span>
-          <span class="chip">📚 Editoria</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -664,9 +637,9 @@ footer .foot-brand{font-family:'Mudstone Sans','Helvetica Neue',Helvetica,Arial,
 <section id="contact">
   <div class="container">
     <div class="contact reveal">
-      <div class="section-num">04 — Contatti</div>
+      <div class="section-num">03 — Contatti</div>
       <h2 style="margin:8px 0 24px">Lavoriamo<br><em>insieme?</em></h2>
-      <p>Hai un progetto in mente, una brochure da rifare, un logo da disegnare? Scrivimi, mi piace ascoltare nuove idee.</p>
+      <p>Hai un brand da costruire, un logo da disegnare, una brochure da impaginare? Raccontami il tuo progetto: rispondo a tutte le richieste entro 48 ore.</p>
       <div class="contact-grid">
         <a class="contact-card" href="mailto:annamaymedenilla@icloud.com">
           <div class="icon">✉️</div>
@@ -753,11 +726,11 @@ const PROJECTS = {
     images: ["images/works/forme.jpg"]
   },
   prism: {
-    title: "PRISM · Stage in azienda moda sostenibile",
+    title: "PRISM · Progetto moda sostenibile",
     images: ["images/works/prism-1.jpg","images/works/prism-2.jpg"]
   },
   spazio81: {
-    title: "Spazio 81 · Stage in laboratorio fine-art",
+    title: "Spazio 81 · Laboratorio fine-art",
     images: ["images/works/spazio81-1.jpg","images/works/spazio81-2.jpg"]
   },
   christmas: {
