@@ -240,6 +240,39 @@ h2 em{
 .tag-purple{background:#9d4dff;color:#fff;border:0}
 .tag-cyan{background:#3df0ff;color:#003d44;border:0}
 
+/* ===== handmade (lavori fatti a mano) ===== */
+.handmade-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.handmade-img{
+  position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;
+  background:linear-gradient(135deg,#1a1432,#231944);
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.handmade-img:hover{transform:translateY(-6px)}
+.handmade-img img{width:100%;height:auto;display:block;transition:transform .6s}
+.handmade-img:hover img{transform:scale(1.03)}
+.handmade-img::after{
+  content:"⤢ Ingrandisci";position:absolute;bottom:16px;right:16px;
+  font-size:12px;font-weight:600;letter-spacing:.04em;
+  padding:8px 14px;border-radius:999px;
+  background:rgba(14,10,30,.65);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.15);color:var(--ink);
+  opacity:0;transition:opacity .3s;
+}
+.handmade-img:hover::after{opacity:1}
+.handmade-text .tag{
+  display:inline-block;padding:6px 14px;border-radius:999px;
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;
+}
+.handmade-text h3{
+  font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;
+  font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:.025em;margin:0 0 22px;
+}
+.handmade-text p{font-size:18px;color:rgba(255,248,238,.85);line-height:1.7;margin:0;max-width:520px}
+@media (max-width:900px){
+  .handmade-grid{grid-template-columns:1fr;gap:32px}
+}
+
 /* ===== about ===== */
 .about-grid{display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
 .about-photo{position:relative}
@@ -411,6 +444,7 @@ footer .foot-brand{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-
     <div class="nav-links" id="navlinks">
       <a href="#services">Servizi</a>
       <a href="#works">Lavori</a>
+      <a href="#fattiamano">Fatti a mano</a>
       <a href="#contact">Contatti</a>
       <a href="cv.html" class="nav-cv">CV →</a>
     </div>
@@ -634,10 +668,33 @@ footer .foot-brand{font-family:'Eternalo','Helvetica Neue',Helvetica,Arial,sans-
   </div>
 </section>
 
+<section id="fattiamano">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-num">03 — Fatti a mano</div>
+        <h2>Lavori<br><em>fatti a mano</em></h2>
+      </div>
+      <p style="max-width:360px;color:var(--ink-dim);margin:0">Opere realizzate a mano, dove il gesto e il segno diventano racconto. Clicca sull'immagine per vederla a tutto schermo.</p>
+    </div>
+
+    <div class="handmade-grid reveal">
+      <div class="handmade-img" onclick="openLB('umanita',0)">
+        <img src="images/handmade/umanita.jpg" alt="Umanità — opera grafica fatta a mano">
+      </div>
+      <div class="handmade-text">
+        <span class="tag tag-cyan">Opera a mano · Maggio 2026</span>
+        <h3>Umanità</h3>
+        <p>I due pesci sono ciechi. Rappresentano noi esseri umani: come pesci ciechi, continuiamo a ruotare attorno a qualcosa senza renderci conto di non raggiungere mai la meta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="contact reveal">
-      <div class="section-num">03 — Contatti</div>
+      <div class="section-num">04 — Contatti</div>
       <h2 style="margin:8px 0 24px">Lavoriamo<br><em>insieme?</em></h2>
       <p>Hai un brand da costruire, un logo da disegnare, una brochure da impaginare? Raccontami il tuo progetto: rispondo a tutte le richieste entro 48 ore.</p>
       <div class="contact-grid">
@@ -744,6 +801,10 @@ const PROJECTS = {
   cv: {
     title: "CV Personale · Layout editoriale",
     images: ["images/cv/cv-1.jpg"]
+  },
+  umanita: {
+    title: "Umanità · Opera a mano (Maggio 2026)",
+    images: ["images/handmade/umanita.jpg"]
   }
 };
 
